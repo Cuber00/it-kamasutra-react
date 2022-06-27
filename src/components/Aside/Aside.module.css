@@ -16,6 +16,11 @@
     
 }
 .aside .nav a{
-    color: #F9F9F9;
     text-decoration: none;
+}
+.item{
+    color: #F9F9F9;
+}
+.active{
+    color: #29A19C;
 }
