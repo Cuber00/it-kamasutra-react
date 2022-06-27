@@ -1,7 +1,8 @@
 import "./App.css"
-import Aside from "./components/Aside";
-import Header from "./components/Header";
-import Profile from "./components/Profile";
+import Aside from "./components/Aside/Aside";
+import Dialogs from "./components/Dialogs/Dialogs";
+import Header from "./components/Header/Header";
+import Profile from "./components/Profile/Profile";
 
 const App = () => {
   
@@ -11,7 +12,11 @@ const App = () => {
         
         <Header />
         <Aside />
-        <Profile />
+        <main className="app-wrapper-content">
+          <Profile />
+          {/* <Dialogs /> */}
+        </main>
+        
 
       </div>
     </div>

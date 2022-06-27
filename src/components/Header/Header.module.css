@@ -1,0 +1,8 @@
+.header{
+    grid-area: h;
+    background-color: #2C3440;
+    color: #fff;
+    display: grid;
+    align-items: center;
+    padding: 5px 15px;
+}

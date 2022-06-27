@@ -1,0 +1,21 @@
+.aside{
+    grid-area: a;
+    background-color: #2C3440;
+    color: #ffffff;
+    padding: 15px;
+}
+.aside .nav{
+    font-size: 20px;
+}
+.aside .nav ul{
+    padding-left: 0;
+}
+.aside .nav li{
+    list-style-type: none;
+    margin-bottom: 15px;
+    
+}
+.aside .nav a{
+    color: #F9F9F9;
+    text-decoration: none;
+}
