@@ -1,0 +1,15 @@
+.friends{
+    margin-top: 40px;
+}
+.content{
+    margin-top: 14px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    gap: 10px;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+}
+.content::-webkit-scrollbar { width: 0; }
+

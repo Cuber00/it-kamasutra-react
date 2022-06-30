@@ -1,6 +1,6 @@
 .dialogsWrapper{
     display: grid;
-    grid-template-columns: 2fr 15fr;
+    grid-template-columns: 140px 15fr;
     
 }
 .title{
@@ -11,16 +11,27 @@
 .dialogs{
     overflow: hidden;
 }
+.avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 .dialog{
     cursor: pointer;
     transition: transform 500ms ease;
     line-height: 45px;
     text-align: right;
+    
     padding-right:15px;
 }
 .dialog a{
     color: #fff;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
 }
 .dialog a.active{
     color: #29A19C;
@@ -46,13 +57,21 @@
 .messages::-webkit-scrollbar { width: 0; }
 
 .message{
+    display: flex;
+    gap: 6px;
+    cursor: default;
+    max-width: 70%;
+
+}
+.text{
     padding: 4px 10px;
     border: 1px solid #fff;
     border-radius: 6px 6px 6px 0;
-    cursor: default;
-    max-width: 70%;
 }
 .received{
     align-self: flex-end;
-    border-radius: 6px 6px 0 6px;
+    flex-direction: row-reverse;
+}
+.received .text{
+    border-radius: 6px 6px 0px 6px;
 }

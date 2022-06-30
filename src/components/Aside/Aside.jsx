@@ -1,8 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import cl from './Aside.module.css'
+import FriendsMap from './FriendsMap/FriendsMap'
 
-const Aside = () => {
+
+const Aside = (props) => {
     return (
         <aside className={cl.aside}>
             <nav className={cl.nav}>
@@ -42,6 +44,8 @@ const Aside = () => {
                     </li>
                 </ul>
             </nav>
+
+            <FriendsMap friends={props.friends.friends}/>
         </aside>
     )
 }

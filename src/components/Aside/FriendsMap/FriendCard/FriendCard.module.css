@@ -1,0 +1,23 @@
+.friendCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45px ;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+.friendCard:hover .avatar{
+    transform: scale(1.05);
+}
+.avatar{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 500ms ease;
+}
+.name{
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+}

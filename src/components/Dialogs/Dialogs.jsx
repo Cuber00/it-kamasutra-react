@@ -9,10 +9,10 @@ const Dialogs = (props) => {
     <div className={cl.dialogsWrapper}>
       <h2 className={cl.title}>Dialogs</h2>
       <div className={cl.dialogs}>
-        {props.dialogJSON.map(d => <DialogItem id={d.id} name={d.name} key={d.id} />)}
+        {props.dialogJSON.map(d => <DialogItem id={d.id} name={d.name} img={d.avatar} key={d.id} />)}
       </div>
       <div className={cl.messages}>
-        {props.messageJSON.map(m => <MessageItem classMessage={cl[m.class]} message={m.message} key={m.id} />)}
+        {props.messageJSON.map(m => <MessageItem classMessage={cl[m.class]} message={m.message} key={m.id} profile={props.profile} />)}
       </div>
     </div>
   )
