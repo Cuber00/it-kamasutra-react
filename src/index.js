@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-
 const dialogJSON = [
-  { id: 1, name: "Sveta" },
+  { id: 1, name: "Sveta2" },
   { id: 2, name: "Vasya" },
   { id: 3, name: "Andrey" },
   { id: 4, name: "Tolya" },
