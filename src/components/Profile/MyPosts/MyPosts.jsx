@@ -2,7 +2,8 @@ import React from 'react'
 import cl from "./MyPosts.module.css"
 import Post from './Post/Post'
 
-const MyPosts = () => {
+
+const MyPosts = (props) => {
     return (
         <div className={cl.posts}>
 
@@ -16,8 +17,7 @@ const MyPosts = () => {
                 </form>
             </div>
 
-            <Post message="Hi, how are you?" />
-            <Post message="It's my first post" />
+            {props.posts.map(p => <Post message={p.post.map(post => (<p>{post}</p>))} key={p.id}/>)}
         </div>
     )
 }

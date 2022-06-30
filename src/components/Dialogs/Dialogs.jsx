@@ -1,45 +1,18 @@
 import React from 'react'
 import cl from "./Dialogs.module.css"
-import { NavLink } from "react-router-dom"
+import DialogItem from "./DialogItem/DialogItem"
+import MessageItem from "./MessageItem/MessageItem"
 
-const DialogItem = (props) => {
-  return (
-    <div className={cl.dialog}>
-      <NavLink
-        to={`/dialogs/${props.id}`}
-        className={({ isActive }) => isActive ? cl.active : ""}
-      >
-        {props.name}
-      </NavLink>
-    </div>
-  )
-}
 
-const MessageItem = (props) => {
-  return (
-    <div className={cl.message + " " + props.classMessage}>
-      {props.message}
-    </div>
-  )
-}
-
-const Dialogs = () => {
+const Dialogs = (props) => {
   return (
     <div className={cl.dialogsWrapper}>
       <h2 className={cl.title}>Dialogs</h2>
       <div className={cl.dialogs}>
-        <DialogItem id="1" name="Sveta" />
-        <DialogItem id="2" name="Tanya" />
-        <DialogItem id="3" name="Tolya" />
-        <DialogItem id="4" name="Andrey" />
-        <DialogItem id="5" name="Vasya" />
-        <DialogItem id="6" name="Slava" />
+        {props.dialogJSON.map(d => <DialogItem id={d.id} name={d.name} key={d.id} />)}
       </div>
       <div className={cl.messages}>
-        <MessageItem classMessage="" message="Hi" />
-        <MessageItem classMessage={cl.received} message="How are you?" />
-        <MessageItem classMessage="" message="Lorem ipsum" />
-        <MessageItem classMessage={cl.received} message="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti magni eos tempora praesentium culpa consequatur eligendi enim, officia debitis? Repellendus?" /> 
+        {props.messageJSON.map(m => <MessageItem classMessage={cl[m.class]} message={m.message} key={m.id} />)}
       </div>
     </div>
   )

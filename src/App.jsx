@@ -7,7 +7,7 @@ import Music from "./components/Music/Music";
 import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 
-const App = () => {
+const App = (props) => {
   
   return(
     <BrowserRouter>
@@ -18,9 +18,9 @@ const App = () => {
         <Aside />
         <main className="app-wrapper-content">
           <Routes>
-            <Route path="/" element={<Profile />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/dialogs/*" element={<Dialogs />} />
+            <Route path="/" element={<Profile postsJSON={props.dataJSON.postsJSON}/>} />
+            <Route path="/profile" element={<Profile postsJSON={props.dataJSON.postsJSON}/>} />
+            <Route path="/dialogs/*" element={<Dialogs dialogJSON={props.dataJSON.dialogJSON} messageJSON={props.dataJSON.messageJSON}/>} />
             <Route path="/news" element={<News/>} />
             <Route path="/music" element={<Music />} />
           </Routes>
