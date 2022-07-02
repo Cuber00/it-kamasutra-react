@@ -1,11 +1,14 @@
+import {renderWindowDom} from "./../render"
+
 const state = {
     profile: {id: 1, name: "Dmitry K.", avatar: "https://www.1zoom.ru/big2/946/289597-frederika.jpg"},
     profilePage: {
         postsJSON: [
             { id: 1, post: ["Hi, how are you?"] },
             { id: 2, post: ["It's my first post"] },
-            { id: 3, post: ["It's my first post", "lorem ipsum dolor sit amet"] }
-        ]
+            { id: 3, post: ["It's my first post", "lorem ipsum dolor sit amet"] },
+        ],
+        newValueText: "",
     },
     dialogsPage: {
         messageJSON: [
@@ -34,6 +37,21 @@ const state = {
             {id: 6, name: "Slava", avatar: "https://igra4.ru/wp-content/uploads/2019/12/4675e38ad2a7ce99b0627bec81823772.png"},
         ]
     }
+}
+
+export const addPost = () => {
+    const post = {
+        id: 6,
+        post: state.profilePage.newValueText
+    }
+    
+    state.profilePage.postsJSON.push(post);
+    renderWindowDom(state);
+}
+
+export const setChangeTextarea = (text) => {
+    state.profilePage.newValueText = text;
+    renderWindowDom(state);
 }
 
 export default state;
