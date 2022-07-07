@@ -8,26 +8,42 @@ import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 
 const App = (props) => {
-  
-  return(
-    <BrowserRouter>
-    <div className="App">
-      <div className="app-wrapper">
-        
-        <Header />
-        <Aside friends={props.state.aside}/>
-        <main className="app-wrapper-content">
-          <Routes>
-            <Route path="/" element={<Profile postsJSON={props.state.profilePage.postsJSON} addPost={props.addPost} setChangeTextarea={props.setChangeTextarea}/>} />
-            <Route path="/profile/*" element={<Profile postsJSON={props.state.profilePage.postsJSON} addPost={props.addPost} setChangeTextarea={props.setChangeTextarea}/>} />
-            <Route path="/dialogs/*" element={<Dialogs dialogJSON={props.state.dialogsPage.dialogJSON} messageJSON={props.state.dialogsPage.messageJSON} profile={props.state.profile}/>} />
-            <Route path="/news" element={<News/>} />
-            <Route path="/music" element={<Music />} />
-          </Routes>
-        </main>
 
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <div className="app-wrapper">
+
+          <Header />
+          <Aside friends={props.state.aside} />
+          <main className="app-wrapper-content">
+            <Routes>
+              {/* <Route path="/"
+                element={
+                  <Profile
+                    profilePage={props.state.profilePage}
+                    addPost={props.addPost}
+                    setChangeTextarea={props.setChangeTextarea}
+                  />
+                }
+              /> */}
+              <Route path="/profile/*"
+                element={
+                  <Profile
+                    profilePage={props.state.profilePage}
+                    addPost={props.addPost}
+                    setChangeTextarea={props.setChangeTextarea}
+                  />
+                }
+              />
+              <Route path="/dialogs/*" element={<Dialogs dialogJSON={props.state.dialogsPage.dialogJSON} messageJSON={props.state.dialogsPage.messageJSON} profile={props.state.profile} />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/music" element={<Music />} />
+            </Routes>
+          </main>
+
+        </div>
       </div>
-    </div>
     </BrowserRouter>
   )
 }

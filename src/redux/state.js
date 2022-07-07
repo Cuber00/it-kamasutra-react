@@ -8,7 +8,7 @@ const state = {
             { id: 2, post: ["It's my first post"] },
             { id: 3, post: ["It's my first post", "lorem ipsum dolor sit amet"] },
         ],
-        newValueText: "",
+        newValueText: "2",
     },
     dialogsPage: {
         messageJSON: [
@@ -46,12 +46,13 @@ export const addPost = () => {
     }
     
     state.profilePage.postsJSON.push(post);
-    renderWindowDom(state);
+    renderWindowDom(state, addPost, setChangeTextarea);
 }
 
 export const setChangeTextarea = (text) => {
+    console.log(text)
     state.profilePage.newValueText = text;
-    renderWindowDom(state);
+    renderWindowDom(state, addPost, setChangeTextarea);
 }
 
 export default state;

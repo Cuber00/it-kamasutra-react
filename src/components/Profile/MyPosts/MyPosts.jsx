@@ -4,18 +4,18 @@ import Post from './Post/Post'
 
 
 const MyPosts = (props) => {
-    console.log(props)
+
     let addNewPost = React.createRef();
 
     const setAddNewPost = (event) => {
         event.preventDefault()
-        const text = addNewPost.current.value;
-        props.addPost(text)
+        props.addPost()
     }
 
     const fun = () => {
+        
         const text = addNewPost.current.value;
-        console.log(props)
+        console.log(props.setChangeTextarea)
         props.setChangeTextarea(text);
     }
 
@@ -27,15 +27,16 @@ const MyPosts = (props) => {
                 <form className={cl.form_post}>
                     <textarea name="new-post"
                         ref={addNewPost}
-                        onChange={fun} 
-                        value="">
+                        onChange={fun}
+                        value={props.profilePage.newValueText}
+                    >
                         Your news...
                     </textarea>
                     <input type="submit" value="Send" onClick={setAddNewPost} />
                 </form>
             </div>
 
-            {props.posts.map(p => <Post message={p.post.map(post => (<p>{post}</p>))} key={p.id} />)}
+            {props.profilePage.postsJSON.map(p => <Post message={p.post.map((post, index) => (<p key={index}>{post}</p>))} key={p.id} />)}
         </div>
     )
 }
