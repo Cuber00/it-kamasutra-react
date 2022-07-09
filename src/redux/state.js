@@ -1,6 +1,8 @@
-import {renderWindowDom} from "./../render"
+let rerenderState = () => {
+    console.log("state changed")
+}
 
-const state = {
+export const state = {
     profile: {id: 1, name: "Dmitry K.", avatar: "https://www.1zoom.ru/big2/946/289597-frederika.jpg"},
     profilePage: {
         postsJSON: [
@@ -42,17 +44,21 @@ const state = {
 export const addPost = () => {
     const post = {
         id: 6,
-        post: state.profilePage.newValueText
+        post: [state.profilePage.newValueText]
     }
     
     state.profilePage.postsJSON.push(post);
-    renderWindowDom(state, addPost, setChangeTextarea);
+    state.profilePage.newValueText = "";
+    rerenderState(state, addPost, setChangeTextarea);
+
 }
 
 export const setChangeTextarea = (text) => {
     console.log(text)
     state.profilePage.newValueText = text;
-    renderWindowDom(state, addPost, setChangeTextarea);
+    rerenderState(state, addPost, setChangeTextarea);
 }
 
-export default state;
+export const subscribe = (observer) => {
+    rerenderState = observer
+}

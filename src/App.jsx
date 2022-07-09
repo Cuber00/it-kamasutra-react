@@ -18,7 +18,7 @@ const App = (props) => {
           <Aside friends={props.state.aside} />
           <main className="app-wrapper-content">
             <Routes>
-              {/* <Route path="/"
+              <Route path="/"
                 element={
                   <Profile
                     profilePage={props.state.profilePage}
@@ -26,7 +26,7 @@ const App = (props) => {
                     setChangeTextarea={props.setChangeTextarea}
                   />
                 }
-              /> */}
+              />
               <Route path="/profile/*"
                 element={
                   <Profile
